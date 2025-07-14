@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>I am calculator</title>
+    <style>
+        h1 {
+            color: #000000;
+            text-align: left;
+            margin-right: 100px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0c97e7;
+        }
+
+        .calculator {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background: #070707;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .display {
+            width: 100%;
+            height: 50px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #000000;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 15px;
+        }
+
+        .buttons button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            background: #5a5959;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #e91717;
+        }
+
+        .operator {
+            color: #000000;
+        }
+
+        .clear {
+            background: #ff4d4d;
+            color: rgb(248, 0, 0);
+        }
+
+        .equal {
+            background: #4CAF50;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DV05WD00007</h1>
+    <div class="calculator">
+        <input type="text" class="display" id="display" readonly>
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="appendToDisplay('÷')" class="operator">÷</button>
+            <button onclick="appendToDisplay('×')" class="operator">×</button>
+            <button onclick="appendToDisplay('-')" class="operator">−</button>
+
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('+')" class="operator">+</button>
+
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="calculate()" class="equal" rowspan="2">=</button>
+
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+
+            <button onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            let expression = display.value;
+
+            // Replace symbols with JS operators
+            expression = expression.replace(/÷/g, '/').replace(/×/g, '*');
+
+            try {
+                display.value = eval(expression);
+            } catch {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+
+</html>

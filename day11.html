@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 11 Task</title>
+    <style>
+        div {
+            margin: 100px;
+            padding: 10px;
+            background-color: rgb(106, 118, 129);
+            font-family: 'Times New Roman', Times, serif;
+            align-items: center;
+        }
+
+        #hoverPara {
+            padding: 10px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Diner venture</h1>
+            <h2 id="mainHeading"><br>Welcome to Day 11 Task</h2>
+            <button onclick="changeHeading()"><br>Click Me</button>
+            <form id="nameForm">
+                <label for="nameInput"><br>Enter your name: </label>
+                <input type="text" id="nameInput" required />
+                <button type="submit"><br>Button</button>
+            </form>
+            <p id="hoverPara"><br>Hover over this paragraph to change its background color.</p>
+        </div>
+    </div>
+
+    <script>
+        // Button click function
+        function changeHeading() {
+            const heading = document.getElementById("mainHeading");
+            heading.textContent = "Heading Changed!";
+            heading.style.color = "Blue";
+        }
+
+        // Form submit event
+        document.getElementById("nameForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("nameInput").value;
+            alert("Hello, " + name + "!");
+        });
+
+        // Mouseover event for paragraph
+        document.getElementById("hoverPara").addEventListener("mouseover", function () {
+            this.style.backgroundColor = "yellow";
+        });
+    </script>
+
+</body>
+
+</html>

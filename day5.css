@@ -1,0 +1,25 @@
+p {
+    color: red;
+}
+
+h1,
+h2 {
+    font-size: 24px;
+    color: rebeccapurple;
+}
+
+body {
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    background-image: url("myprofile.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    background-color: rgb(33, 173, 33);
+}
+
